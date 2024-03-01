@@ -2,34 +2,34 @@
 
 
 
-What is Speech Emotion Recognition?
+## What is Speech Emotion Recognition?
 Speech Emotion Recognition, abbreviated as SER, is the act of attempting to recognize human emotion and affective states from speech. This is capitalizing on the fact that voice often reflects underlying emotion through tone and pitch. This is also the phenomenon that animals like dogs and horses employ to be able to understand human emotion.
 
 SER is tough because emotions are subjective and annotating audio is challenging.
 
-What is librosa?
+## What is librosa?
 librosa is a Python library for analyzing audio and music. It has a flatter package layout, standardizes interfaces and names, backwards compatibility, modular functions, and readable code.
 
-Speech Emotion Recognition – Objective
+## Speech Emotion Recognition – Objective
 To build a model to recognize emotion from speech using the librosa and sklearn libraries and the RAVDESS dataset.
 
-Speech Emotion Recognition – About the Python Mini Project
+## Speech Emotion Recognition – About the Python Mini Project
 In this Python mini project, we will use the libraries librosa, soundfile, and sklearn (among others) to build a model using an MLPClassifier. This will be able to recognize emotion from sound files. We will load the data, extract features from it, then split the dataset into training and testing sets. Then, we’ll initialize an MLPClassifier and train the model. Finally, we’ll calculate the accuracy of our model.
 
-The Dataset
+## The Dataset
 For this Python mini project, we’ll use the RAVDESS dataset; this is the Ryerson Audio-Visual Database of Emotional Speech and Song dataset, and is free to download. This dataset has 7356 files rated by 247 individuals 10 times on emotional validity, intensity, and genuineness. The entire dataset is 24.8GB from 24 actors, but we’ve lowered the sample rate on all the files, and you can download it here.
 Dataset - https://drive.google.com/file/d/1wWsrN2Ep7x6lWqOXfr4rpKGYrJhWc8z7/view
 
-Prerequisites
+## Prerequisites
 You’ll need to install the following libraries with pip in Requirements.txt
 
-Steps for speech emotion recognition:
+## Steps for speech emotion recognition:
 1. Make the necessary imports
 2. Define a function extract_feature to extract the mfcc, chroma, and mel features from a sound file. This function takes 4 parameters- the file name and three Boolean parameters for the three features:
 
-    mfcc: Mel Frequency Cepstral Coefficient, represents the short-term power spectrum of a sound
-    chroma: Pertains to the 12 different pitch classes
-    mel: Mel Spectrogram Frequency
+    * mfcc: Mel Frequency Cepstral Coefficient, represents the short-term power spectrum of a sound
+    * chroma: Pertains to the 12 different pitch classes
+    * mel: Mel Spectrogram Frequency
    
 Open the sound file with soundfile.SoundFile using with-as so it’s automatically closed once we’re done. Read from it and call it X. Also, get the sample rate. If chroma is True, get the Short-Time Fourier Transform of X.
 Let result be an empty numpy array. Now, for each feature of the three, if it exists, make a call to the corresponding function from librosa.feature (eg- librosa.feature.mfcc for mfcc), and get the mean value. Call the function hstack() from numpy with result and the feature value, and store this in result. hstack() stacks arrays in sequence horizontally (in a columnar fashion). Then, return the result.
