@@ -43,7 +43,7 @@ observed_emotions=['calm', 'happy', 'fearful', 'disgust']
 #Load the data and extract features for each sound file
 def load_data(test_size=0.2):
     x,y=[],[]
-    for file in glob.glob("D:\\DataFlair\\ravdess data\\Actor_*\\*.wav"):
+    for file in glob.glob("<PATH HERE>\\ravdess data\\Actor_*\\*.wav"):
         file_name=os.path.basename(file)
         emotion=emotions[file_name.split("-")[2]]
         if emotion not in observed_emotions:
